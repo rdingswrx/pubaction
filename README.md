@@ -25,8 +25,10 @@ Quick Start
         * Change all the variable values inside the monitor definition as per your application.
     * Check-in the code and push to remote: `git push --set-upstream origin win-agent`
     * Open PR. Wait for approval.
+    * Merge the PR in bitbucket web UI.
 * Apply changes to create monitor:
-    * Once PR is approved, follow steps below to apply the changes to create the monitor.
+    * Once PR is approved and merged, follow steps below to apply the changes to create the monitor.
+    * Switch to the main branch: `git checkout main`
     * Login to [vault web UI](https://vault.aws.secureworks.com/ui/vault/secrets). Copy your CLI token.
     * Run following commands retrieve Datadog keys from Vault and set them as env variables.
         
@@ -51,4 +53,3 @@ Quick Start
         $ terraform init # Only needed once
         $ terraform apply -auto-approve
         ```
-    * The output of above command should give the URL to access the monitor from a browser

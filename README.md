@@ -37,6 +37,11 @@ Quick Start
     * Check-in the code and push to remote: `git push --set-upstream origin <branch-name>`
     * Open PR. Wait for approval.
     * Merge the PR in bitbucket web UI.
+    * Switch to the main branch and do a git pull
+      ```
+      git checkout main
+      git pull
+      ```
 * Apply changes to create monitor:
     * Once PR is approved and merged, follow steps below to apply the changes to create the monitor.
         * Switch to the main branch: `git checkout main`

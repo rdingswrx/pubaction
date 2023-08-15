@@ -49,5 +49,5 @@ resource "datadog_monitor" "monitor-definitions" {
   require_full_window = true # Evaluats a full window of x minutes before notifying
   include_tags        = true # Tags
   tags    = each.value.tag_list
-  restricted_roles    = ["4364991c-c421-11ed-9d76-da7ad0900002"] #UUID for VOpsRole
+  restricted_roles    = ["670f6134-3542-11ee-9e26-da7ad0900002"] #UUID for Managed-by-TF. Means these monitors can only be modified using Terraform. No edits possible on the UI by other users.
 }

@@ -11,7 +11,6 @@ dd-monitor-definitions = {
     This monitor will try to autoremediate by restarting the pods using oncallbot. 
 
     If restart does not help, oncallbot will notify the on-call resource using PagerDuty.
-
     Playbook:https://secureworks.atlassian.net/wiki/spaces/VOLPLAY/pages/467710346247/
 
     notify:@webhook-oncallbot-prod
@@ -44,8 +43,8 @@ dd-monitor-definitions = {
     {{/is_alert_recovery}} 
     {{#is_no_data}}This monitor is missing data and can no longer monitor the prov-inventory service. It's possible metrics are no longer being submitted. Check the OpenShift deployment still exists and is in good health. Make sure the metric and tags this monitor checks still matches the deployment. If there is no explanation for missing data, it could be the metrics are not being submitted to DataDog and you should reach out to the Voltron team.{{/is_no_data}}
     {{#is_no_data_recovery}}This monitor is no longer missing data.{{/is_no_data_recovery}}
+    Playbook: https://secureworks.atlassian.net/wiki/spaces/VOLPLAY/pages/467878281271/
 
-    Playbook: https://secureworks.atlassian.net/wiki/spaces/VOLPLAY/pages/467878281271/ 
     notify: @webhook-oncallbot-pilot 
     EOF
     tag_list = [
@@ -70,8 +69,8 @@ dd-monitor-definitions = {
     {{/is_alert_recovery}} 
     {{#is_no_data}}This monitor is missing data and can no longer monitor the prov-inventory service. It's possible metrics are no longer being submitted. Check the OpenShift deployment still exists and is in good health. Make sure the metric and tags this monitor checks still matches the deployment. If there is no explanation for missing data, it could be the metrics are not being submitted to DataDog and you should reach out to the Voltron team.{{/is_no_data}}
     {{#is_no_data_recovery}}This monitor is no longer missing data.{{/is_no_data_recovery}}
+    Playbook: https://secureworks.atlassian.net/wiki/spaces/VOLPLAY/pages/467878281271/
 
-    Playbook: https://secureworks.atlassian.net/wiki/spaces/VOLPLAY/pages/467878281271/ 
     notify: @webhook-oncallbot-prod
     EOF
     tag_list = [

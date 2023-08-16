@@ -34,7 +34,7 @@ dd-monitor-definitions = {
   ####### SSP pod count monitor START #######
   "id002" = { # Needs to be unique
     monitor_name    = "prov-inventory pilot pod count < 1"
-    monitor_query   = "max(last_15m):avg:kubernetes_state.deployment.replicas{env:pilot,kube_namespace:ssp,service:prov-inventory} < 1"
+    monitor_query   = "max(last_15m):avg:kubernetes_state.deployment.replicas_available{env:pilot,kube_namespace:ssp,service:prov-inventory} < 1"
     alert_message   = <<EOF
     {{#is_alert}}
     pilot prov-inventory has no pods running. Check the deployment in OpenShift. 
@@ -60,7 +60,7 @@ dd-monitor-definitions = {
   },
   "id003" = { # Needs to be unique
     monitor_name    = "prov-inventory prod pod count < 1"
-    monitor_query   = "max(last_15m):avg:kubernetes_state.deployment.replicas{env:prod,kube_namespace:ssp,service:prov-inventory} < 1"
+    monitor_query   = "max(last_15m):avg:kubernetes_state.deployment.replicas_available{env:prod,kube_namespace:ssp,service:prov-inventory} < 1"
     alert_message   = <<EOF
     {{#is_alert}}
     prod prov-inventory has no pods running. Check the deployment in OpenShift. 

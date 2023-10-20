@@ -112,6 +112,30 @@ dd-monitor-definitions = {
   },
   ####### SSP pod count monitor END #######
 
+"id005" = { # Needs to be unique
+    monitor_name    = "foresee prod pod count < 6"
+    monitor_query   = "max(last_15m):avg:kubernetes_state.deployment.replicas_available{env:prod,kube_namespace:foresee,app:reactive-foresee} < 6"
+    alert_message   = <<EOF
+    {{#is_alert}}
+    prod reactive-foresee has less than 6 pods running. Check the deployment in OpenShift. 
+    {{/is_alert}} 
+    {{#is_alert_recovery}}
+    prod reactive-foresee capacity is recovered. 
+    {{/is_alert_recovery}} 
+    {{#is_no_data}}This monitor is missing data and can no longer monitor the reactive-foresee service. It's possible metrics are no longer being submitted. Check the OpenShift deployment still exists and is in good health. Make sure the metric and tags this monitor checks still matches the deployment. If there is no explanation for missing data, it could be the metrics are not being submitted to DataDog and you should reach out to the Voltron team.{{/is_no_data}}
+    {{#is_no_data_recovery}}This monitor is no longer missing data.{{/is_no_data_recovery}}
+    Playbook: https://secureworks.atlassian.net/wiki/spaces/VOLPLAY/pages/467878281271/
 
-
+    notify: @webhook-oncallbot-prod
+    EOF
+    tag_list = [
+        "autoremediation:yes", 
+        "notify:oncallbot", 
+        "env:prod", 
+        "service:reactive-foresee", 
+        "playbook:yes",
+        "openshift-deployment-name:reactive-foresee-deployment",
+        "openshift-namespace:foresee",
+        "recovery-timeout-minutes:25"]
+  },
 }

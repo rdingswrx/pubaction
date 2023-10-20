@@ -114,7 +114,7 @@ dd-monitor-definitions = {
 
 "id005" = { # Needs to be unique
     monitor_name    = "foresee prod pod count < 6"
-    monitor_query   = "max(last_15m):sum:kubernetes_state.container.ready{kube_cluster_name:okd-useast1-prod,kube_namespace:foresee,app:reactive-foresee} by {app}.rollup(avg, 60).fill(null) < 6"
+    monitor_query   = "max(last_15m):sum:kubernetes_state.container.ready{kube_cluster_name:okd-useast1-prod,kube_namespace:foresee,app:reactive-foresee-deployment} < 6"
     alert_message   = <<EOF
     {{#is_alert}}
     prod reactive-foresee has less than 6 pods running. Check the deployment in OpenShift. 

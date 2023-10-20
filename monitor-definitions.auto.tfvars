@@ -113,7 +113,7 @@ dd-monitor-definitions = {
   ####### SSP pod count monitor END #######
 
 "id005" = { # Needs to be unique
-    monitor_name    = "foresee prod pod count < 8"
+    monitor_name    = "foresee prod pod count < 6"
     monitor_query   = "max(last_15m):sum:kubernetes_state.container.ready{kube_cluster_name:okd-useast1-prod,kube_namespace:foresee,app:reactive-foresee} by {app}.rollup(avg, 60).fill(null) < 6"
     alert_message   = <<EOF
     {{#is_alert}}

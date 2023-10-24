@@ -162,7 +162,7 @@ dd-monitor-definitions = {
         "env:prod", 
         "service:reactive-foresee", 
         "playbook:yes",
-        "openshift-deployment-name:reactive-foresee",
+        "openshift-deployment-name:reactive-foresee-deployment",
         "openshift-namespace:foresee",
         "recovery-timeout-minutes:25"]
   },

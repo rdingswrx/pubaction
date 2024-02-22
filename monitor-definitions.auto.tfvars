@@ -205,7 +205,7 @@ dd-monitor-definitions = {
     {{#is_alert_recovery}}
     prod vt-service capacity is recovered.
     {{/is_alert_recovery}}
-    {{#is_no_data}}This monitor is missing data and can no longer monitor the netacuity service. It's possible metrics are no longer being submitted. Check the OpenShift deployment still exists and is in good health. Make sure the metric and tags this monitor checks still matches the deployment. If there is no explanation for missing data, it could be the metrics are not being submitted to DataDog and you should reach out to the Voltron team.{{/is_no_data}}
+    {{#is_no_data}}This monitor is missing data and can no longer monitor the VT service. It's possible metrics are no longer being submitted. Check the OpenShift deployment still exists and is in good health. Make sure the metric and tags this monitor checks still matches the deployment. If there is no explanation for missing data, it could be the metrics are not being submitted to DataDog and you should reach out to the Voltron team.{{/is_no_data}}
  {{#is_no_data_recovery}}This monitor is no longer missing data.{{/is_no_data_recovery}}
     Playbook: https://secureworks.atlassian.net/wiki/spaces/VOLPLAY/pages/467878281271/
 
@@ -233,7 +233,7 @@ dd-monitor-definitions = {
     {{#is_alert_recovery}}
     prod vt-manager capacity is recovered.
     {{/is_alert_recovery}}
-    {{#is_no_data}}This monitor is missing data and can no longer monitor the netacuity service. It's possible metrics are no longer being submitted. Check the OpenShift deployment still exists and is in good health. Make sure the metric and tags this monitor checks still matches the deployment. If there is no explanation for missing data, it could be the metrics are not being submitted to DataDog and you should reach out to the Voltron team.{{/is_no_data}}
+    {{#is_no_data}}This monitor is missing data and can no longer monitor the VT manager. It's possible metrics are no longer being submitted. Check the OpenShift deployment still exists and is in good health. Make sure the metric and tags this monitor checks still matches the deployment. If there is no explanation for missing data, it could be the metrics are not being submitted to DataDog and you should reach out to the Voltron team.{{/is_no_data}}
  {{#is_no_data_recovery}}This monitor is no longer missing data.{{/is_no_data_recovery}}
     Playbook: https://secureworks.atlassian.net/wiki/spaces/VOLPLAY/pages/467878281271/
 
@@ -261,7 +261,7 @@ dd-monitor-definitions = {
     {{#is_alert_recovery}}
     prod Whois service capacity is recovered.
     {{/is_alert_recovery}}
-    {{#is_no_data}}This monitor is missing data and can no longer monitor the netacuity service. It's possible metrics are no longer being submitted. Check the OpenShift deployment still exists and is in good health. Make sure the metric and tags this monitor checks still matches the deployment. If there is no explanation for missing data, it could be the metrics are not being submitted to DataDog and you should reach out to the Voltron team.{{/is_no_data}}
+    {{#is_no_data}}This monitor is missing data and can no longer monitor the Whois service. It's possible metrics are no longer being submitted. Check the OpenShift deployment still exists and is in good health. Make sure the metric and tags this monitor checks still matches the deployment. If there is no explanation for missing data, it could be the metrics are not being submitted to DataDog and you should reach out to the Voltron team.{{/is_no_data}}
  {{#is_no_data_recovery}}This monitor is no longer missing data.{{/is_no_data_recovery}}
     Playbook: https://secureworks.atlassian.net/wiki/spaces/VOLPLAY/pages/467878281271/
 

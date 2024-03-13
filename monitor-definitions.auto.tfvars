@@ -349,4 +349,34 @@ dd-monitor-definitions = {
   },
 ####### Usecase annotator prod pod count monitor END #######
 
+####### Usecase annotator queue size monitor START #######
+
+"id014" = { # Needs to be unique
+    monitor_name    = "Queue Size - UseCaseAnnotator at broker"
+    monitor_query   = "min(last_15m):avg:mq.usecaseannotator.qsize{env:prod} by {source} > 20000"
+    alert_message   = <<EOF
+    {{#is_alert}}
+    The size of the Usecaseannotator queue has grown larger than an expected healthy size. 
+    {{/is_alert}} 
+    {{#is_alert_recovery}}
+    The size of the Usecaseannotator queue is recovered. 
+    {{/is_alert_recovery}} 
+    {{#is_no_data}}This monitor is missing data and can no longer monitor the usecase annotator service. It's possible metrics are no longer being submitted. Check the OpenShift deployment still exists and is in good health. Make sure the metric and tags this monitor checks still matches the deployment. If there is no explanation for missing data, it could be the metrics are not being submitted to DataDog and you should reach out to the Voltron team.{{/is_no_data}}
+    {{#is_no_data_recovery}}This monitor is no longer missing data.{{/is_no_data_recovery}}
+    Playbook: https://secureworks.atlassian.net/wiki/spaces/VOLPLAY/pages/467878281271/
+
+    notify: @webhook-oncallbot-prod
+    EOF
+    tag_list = [
+        "autoremediation:yes", 
+        "notify:oncallbot", 
+        "env:prod", 
+        "service:use-case-annotator", 
+        "playbook:yes",
+        "openshift-deployment-name:use-case-annotator",
+        "openshift-namespace:usecase",
+        "recovery-timeout-minutes:25"]
+  },
+####### Usecase annotator queue size monitor END #######
+
 }

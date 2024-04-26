@@ -430,7 +430,8 @@ dd-monitor-definitions = {
     tag_list = [
         "autoremediation:yes", 
         "notify:oncallbot", 
-        "env:prod", 
+        "env:prod",
+        "downtime:sherlok-prd", 
         "service:mod-eventworker", 
         "playbook:yes",
         "openshift-deployment-name:mod-eventworker",
@@ -460,7 +461,8 @@ dd-monitor-definitions = {
     tag_list = [
         "autoremediation:yes", 
         "notify:oncallbot", 
-        "env:prod", 
+        "env:prod",
+        "downtime:sherlok-prd", 
         "service:mod-eventloader", 
         "playbook:yes",
         "openshift-deployment-name:mod-eventloader",
@@ -490,7 +492,8 @@ dd-monitor-definitions = {
     tag_list = [
         "autoremediation:yes", 
         "notify:oncallbot", 
-        "env:prod", 
+        "env:prod",
+        "downtime:sherlok-prd", 
         "service:mod-harvester", 
         "playbook:yes",
         "openshift-deployment-name:mod-harvester",
@@ -521,6 +524,7 @@ dd-monitor-definitions = {
         "autoremediation:yes", 
         "notify:oncallbot", 
         "env:prod", 
+        "downtime:sherlok-prd",
         "service:mod-devtypemapper", 
         "playbook:yes",
         "openshift-deployment-name:mod-devtypemapper",

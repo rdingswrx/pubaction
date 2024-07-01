@@ -1,36 +1,4 @@
 dd-monitor-definitions = {
-  ####### TAP analysis portal pod count monitor START #######
-  "id001" = { # Needs to be unique
-    monitor_name    = "analysis-portal - pod count < 1" # Follow the format: <service> - <alert summary>
-    # The query to be used by the monitor.
-    monitor_query   = "max(last_1m):sum:kubernetes_state.container.ready{kube_namespace:tap,env:prod,service:analysis-portal} < 1"
-    # The message sent when alert is fired
-    alert_message   = <<EOF
-    TAP analysis portal service has less than 1 pod available in prod for at least the last 10 minutes.
-
-    This monitor will try to autoremediate by restarting the pods using oncallbot. 
-
-    If restart does not help, oncallbot will notify the on-call resource using PagerDuty.
-
-    Playbook:https://secureworks.atlassian.net/wiki/spaces/VOLPLAY/pages/467710346247/
-
-    notify:@webhook-oncallbot-prod
-
-    EOF
-    # List of tags for the monitor
-    tag_list = [
-        "autoremediation:yes", 
-        "notify:oncallbot", 
-        "env:prod", 
-        "service:analysis-portal", 
-        "playbook:yes",
-        "openshift-deployment-name:analysis-portal-202208-1",
-        "openshift-namespace:tap",
-        "recovery-timeout-minutes:2"]
-  },
-  ####### TAP analysis portal pod count monitor END #######
-
-
   ####### SSP pod count monitor START #######
   "id002" = { # Needs to be unique
     monitor_name    = "prov-inventory pilot pod count < 1"

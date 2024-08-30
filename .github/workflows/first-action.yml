@@ -2,8 +2,9 @@ name: first workflow
 on: workflow_dispatch
 jobs:
   first-job:
-    runs-on: ubuntu-latest
-      steps:
+    runs-on: 
+      group: ubuntu-runners
+    steps:
       - name: greeting
         run: echo "hello"
       - name: print by
